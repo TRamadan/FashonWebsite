@@ -1,0 +1,44 @@
+.banner {
+    width: 100%;
+    position: relative;
+    height: 150px;
+    background-image: url('../../../assets/bg_contactus.jpg');
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 14%;
+}
+
+* {
+    background-color: #fafaf8;
+}
+
+p {
+    color: #858585;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+ol {
+    list-style: none;
+}
+
+i {
+    margin-right: 10px;
+    color: goldenrod;
+}
+
+li {
+    margin-bottom: 5%;
+}
+
+.send-button {
+    border: 1px solid goldenrod;
+    margin-top: 15px;
+}
+
+.send-button:hover {
+    background-color: chocolate;
+    transition: 0.5 ease-in;
+    color: white;
+}

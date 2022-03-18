@@ -1,0 +1,192 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 material-section text-center">
+      <ul class="needed-ul">
+        <li
+          class="needed-li select-product"
+          (click)="ShowProducts(content_products)"
+        >
+          <p>Select product</p>
+        </li>
+        <li class="needed-li fabric-li" (click)="ShowFabrics(content)">
+          <img class="fabric-image" [src]="selectedImg" />
+          <span class="cutoms-titles">Fabric</span>
+        </li>
+        <li class="needed-li fabric-li" (click)="ShowCollars(content_collar)">
+          <img class="fabric-image" [src]="selectedCorallImg" />
+          <span class="cutoms-titles">Collar</span>
+        </li>
+        <li class="needed-li fabric-li" (click)="ShowSleeves(content_sleeve)">
+          <img class="fabric-image" [src]="selectedSleeve" />
+          <span class="cutoms-titles">Sleeve</span>
+        </li>
+        <li
+          class="needed-li fabric-li"
+          (click)="ShowSleeveHem(content_sleevehem)"
+        >
+          <img class="fabric-image" [src]="selectedSleeveHem" />
+          <span class="cutoms-titles">Sleeve hem</span>
+        </li>
+        <li class="needed-li fabric-li" (click)="ShowPockets(content_pockets)">
+          <img class="fabric-image" [src]="selectedpocket" />
+          <span class="cutoms-titles">Pocket</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-10 image-section text-center">
+      here is the change of the image
+    </div>
+  </div>
+</div>
+
+<!-- here is the modal needed to show the fabrics-->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Choose needed fabric</h4>
+  </div>
+  <div class="modal-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let fabric of Fabrics">
+        <div class="row" (click)="SelectedFabric(fabric)">
+          <div class="col-md-3">
+            <img [src]="fabric.img" class="fabric-imgs" />
+          </div>
+
+          <div class="col-md-6">
+            <p>{{ fabric.title }}</p>
+            <p>{{ fabric.description }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark">Save</button>
+  </div>
+</ng-template>
+
+<!-- here is the modal needed to open collars-->
+<ng-template #content_collar let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Choose needed collar</h4>
+  </div>
+  <div class="modal-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let collar of Collars">
+        <div class="row" (click)="SelectedCollar(collar)">
+          <div class="col-md-3">
+            <img [src]="collar.img" class="fabric-imgs" />
+          </div>
+
+          <div class="col-md-6">
+            <p class="collar-title">{{ collar.title }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark">Save</button>
+  </div>
+</ng-template>
+
+<!-- here is the modal needed to open sleeves-->
+<ng-template #content_sleeve let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Choose needed sleeve</h4>
+  </div>
+  <div class="modal-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let sleeve of Sleeves">
+        <div class="row" (click)="SelectedSleeve(sleeve)">
+          <div class="col-md-3">
+            <img [src]="sleeve.img" class="fabric-imgs" />
+          </div>
+
+          <div class="col-md-6">
+            <p class="collar-title">{{ sleeve.title }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark">Save</button>
+  </div>
+</ng-template>
+
+<!-- here is the modal needed to open sleevehem -->
+<ng-template #content_sleevehem let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Choose needed SleeveHem</h4>
+  </div>
+  <div class="modal-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let sleevehem of SleeveHems">
+        <div class="row" (click)="SelectedSleeveHem(sleevehem)">
+          <div class="col-md-3">
+            <img [src]="sleevehem.img" class="fabric-imgs" />
+          </div>
+
+          <div class="col-md-6">
+            <p class="collar-title">{{ sleevehem.title }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark">Save</button>
+  </div>
+</ng-template>
+
+<!-- here is the modal needed to open pockets-->
+<ng-template #content_pockets let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Choose needed pocket</h4>
+  </div>
+  <div class="modal-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let pocket of Pockets">
+        <div class="row" (click)="SelectPocket(pocket)">
+          <div class="col-md-3">
+            <img [src]="pocket.img" class="fabric-imgs" />
+          </div>
+
+          <div class="col-md-6">
+            <p class="collar-title">{{ pocket.title }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark">Save</button>
+  </div>
+</ng-template>
+
+<!-- here is the modal needed to open products-->
+<ng-template #content_products let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Choose needed product</h4>
+  </div>
+  <div class="modal-body">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let product of Products">
+        <div class="row">
+          <div class="col-md-3">
+            <img [src]="product.img" class="fabric-imgs" />
+          </div>
+
+          <div class="col-md-6">
+            <p class="collar-title">{{ product.title }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-success">Save</button>
+  </div>
+</ng-template>

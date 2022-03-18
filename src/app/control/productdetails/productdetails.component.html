@@ -1,0 +1,81 @@
+<div class="banner animate__animated animate__fadeIn slow 3s">
+  <h3 class="category-name">Category name here</h3>
+</div>
+
+<div class="row w-100 p-3 animate__animated animate__fadeIn slow 3s">
+  <div class="col-md-12">
+    <h5 class="text-center all-products">Product details</h5>
+  </div>
+</div>
+
+<div class="container animate__animated animate__fadeIn slow 3s">
+  <div class="row">
+    <div class="col-md-8 product-holder">
+      <div class="card product-card">
+        <div class="row">
+          <div class="col-md-6 my-auto">
+            <img
+              *ngIf="ProductDetails.image == null"
+              src="../../../assets/product-image-placeholder.jpg"
+              alt="Avatar"
+              class="product-img"
+            />
+
+            <img
+              *ngIf="ProductDetails.image != null"
+              [src]="image_url + ProductDetails.image"
+              alt="Avatar"
+              class="product-img"
+            />
+          </div>
+
+          <div class="col-md-6 product-details-section">
+            <h5 class="product-name text-center">{{ ProductDetails.name }}</h5>
+            <span class="fw-bold">Details</span>
+            <p class="text-center">
+              {{ ProductDetails.details }}
+            </p>
+            <p class="fw-bold text-center price">
+              Price : {{ ProductDetails.price }} LE
+            </p>
+
+            <p class="fw-bold text-center price">
+              Stock quantity : {{ ProductDetails.quantity }}
+            </p>
+
+            <p>Quantity needed:</p>
+            <div class="form-check-inline">
+              <button class="btn btn-primary mb-3" (click)="plus()">
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+            <div class="form-check-inline">
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="inputnumber"
+              />
+            </div>
+            <div class="form-check-inline">
+              <button class="btn btn-primary" (click)="minus()">
+                <i class="fa fa-minus"></i>
+              </button>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <button
+                  [disabled]="inputnumber == 0"
+                  class="btn btn-outline-success mt-2"
+                  (click)="AddToCart()"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

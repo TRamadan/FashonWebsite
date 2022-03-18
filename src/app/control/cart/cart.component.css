@@ -1,0 +1,29 @@
+.detaild-img {
+    vertical-align: bottom;
+    margin-right: 10px;
+    margin-bottom: 40px;
+}
+
+th, td {
+    vertical-align: middle;
+}
+
+.card {
+    border: none;
+}
+
+.banner {
+    width: 100%;
+    position: relative;
+    height: 150px;
+    background-image: url('../../../assets/bg_contactus.jpg');
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 14%;
+}
+
+
+.product-name {
+    padding: 17px;
+    font-weight: bold;
+}

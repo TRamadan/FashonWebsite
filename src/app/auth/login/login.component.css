@@ -1,0 +1,39 @@
+.ourForm {
+    background-color: white;
+    padding: 85.5px 30px;
+    border: 1px solid #ddd;
+    box-shadow: -3px 1px 18px -9px #000;
+}
+
+.title-separtor {
+    width: 41%;
+    margin: 0px auto 0px auto;
+    height: 4%;
+    background-color: grey;
+    border-left: 10px;
+}
+
+.logForm {
+    margin: 4.25% auto;
+}
+
+.gotoregister {
+    text-decoration: none;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.btn-navy {
+    background-color: navy;
+    color: white;
+}
+
+* {
+    text-align: right;
+}
+
+.br {
+    box-shadow: 5px 2px 18px -9px #000;
+}

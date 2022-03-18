@@ -1,0 +1,15 @@
+.card-new {
+    background-color: #001a30;
+    border: none;
+    box-shadow: 2px 6px 17px 0px rgb(0 0 0 / 35%);
+    color: #fff;
+}
+
+.profile-card {
+    border: none;
+    box-shadow: 2px 6px 17px 0px rgb(0 0 0 / 35%);
+}
+
+.profile-label {
+    font-size: 30px;
+}

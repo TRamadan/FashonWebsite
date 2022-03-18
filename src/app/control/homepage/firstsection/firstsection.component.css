@@ -1,0 +1,12 @@
+.container-fluid {
+    padding: 0px;
+}
+
+.remove-overflow {
+    overflow-x: hidden !important;
+}
+
+video {
+    height: 760px;
+    position: relative;
+}

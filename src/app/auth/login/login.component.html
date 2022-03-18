@@ -1,0 +1,91 @@
+<div class="container logForm">
+  <div class="row my-3">
+    <div class="col-md-2 col-12 p-0"></div>
+    <div class="col-md-4 col-12 p-0">
+      <img
+        src="../../../assets/loginbanner.jpg"
+        class="w-100 h-100 br"
+        alt="karnak"
+      />
+    </div>
+    <div class="col-md-4 col-12 ourForm">
+      <div class="row">
+        <div class="col-12 mt-2">
+          <h3 class="text-center">Log in</h3>
+          <div class="title-separtor mt-3"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 mt-4">
+          <p class="fw-bold text-center">
+            Not a member yet?
+            <a class="gotoregister" routerLink="../register"> Join here </a>
+          </p>
+        </div>
+      </div>
+
+      <form [formGroup]="LoginForm">
+        <div class="row mt-3 mb-3">
+          <div class="col-12">
+            <div class="form-group">
+              <input
+                type="text"
+                class="text-left form-control"
+                placeholder="Username"
+                formControlName="email"
+              />
+            </div>
+
+            <!-- validations goes here-->
+            <div
+              *ngIf="
+                LoginForm.controls['email'].invalid &&
+                (LoginForm.controls['email'].dirty ||
+                  LoginForm.controls['email'].touched)
+              "
+              class="text-danger fw-bold text-left"
+            >
+              <div *ngIf="LoginForm.controls['email'].errors?.required">
+                Username is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <input
+                type="password"
+                class="text-left form-control"
+                placeholder="Password"
+                formControlName="password"
+              />
+            </div>
+
+            <div
+              *ngIf="
+                LoginForm.controls['password'].invalid &&
+                (LoginForm.controls['password'].dirty ||
+                  LoginForm.controls['password'].touched)
+              "
+              class="text-danger fw-bold text-left"
+            >
+              <div *ngIf="LoginForm.controls['password'].errors?.required">
+                password is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-12 mt-2">
+          <button class="btn btn-navy w-100 text-center" (click)="DoneLogin()">
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 col-12 p-0"></div>
+  </div>
+</div>

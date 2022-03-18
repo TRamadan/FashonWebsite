@@ -1,0 +1,62 @@
+<div class="row w-100">
+  <div class="col-md-12 text-center">
+    <h5 class="catogries p-3">Main Categories</h5>
+  </div>
+</div>
+<div class="row w-100 justify-content-center">
+  <div class="col-md-12" *ngIf="AllCategories.length == 0">
+    <div class="alert alert-warning" role="alert">
+      There is no categories added
+    </div>
+  </div>
+  <div class="col-md-4" *ngFor="let category of AllCategories">
+    <div class="card" (click)="ShowAllProducts(category.id)">
+      <div class="img-holder">
+        <div *ngIf="category.categoryImage == null">
+          <img
+            class="category-image"
+            src="../../../../assets/no-categories.png"
+          />
+        </div>
+        <div *ngIf="category.categoryImage != null">
+          <img
+            class="category-image"
+            [src]="image_url + category.categoryImage"
+          />
+        </div>
+        <!-- <img
+          class="category-image"
+          src="../../../assets/product-suits.jpg"
+          alt="Card image cap"
+        /> -->
+        <div class="img-caption">{{ category.categoryName }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-md-4">
+    <div class="card" (click)="ShowAllProducts()">
+      <div class="img-holder">
+        <img
+          class="category-image"
+          src="../../../assets/product-shirts.jpg"
+          alt="Card image cap"
+        />
+        <div class="img-caption">Category name</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card" (click)="ShowAllProducts()">
+      <div class="img-holder">
+        <img
+          class="category-image"
+          src="../../../assets/product-accessories.jpg"
+          alt="Card image cap"
+        />
+        <div class="img-caption">Category name</div>
+      </div>
+    </div>
+  </div> -->
+</div>

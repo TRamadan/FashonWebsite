@@ -1,0 +1,29 @@
+.bg-white-new {
+    background-color: #efeeee;
+}
+
+.catogries {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.began-word {
+    border: 1px solid goldenrod;
+    padding: 30px;
+    margin-bottom: 20px;
+    margin-left: 6%;
+}
+
+.makana-img {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    text-align: center;
+    width: 77%;
+    height: 77%;
+    margin-top: 20px;
+}
+
+p {
+    line-height: 30px;
+}

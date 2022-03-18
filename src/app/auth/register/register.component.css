@@ -1,0 +1,95 @@
+.register-title {
+    text-shadow: 2px 2px #FF0000;
+}
+
+.line-separator {
+    width: 41%;
+    margin: 0px auto 0px auto;
+    height: 4%;
+    background-color: grey;
+    border-left: 10px;
+}
+
+.text-word {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+}
+
+/** Registeration form style **/
+.ourForm {
+    background-color: white;
+    padding: 85.5px 30px;
+    border: 1px solid #ddd;
+    box-shadow: -3px 1px 18px -9px #000;
+}
+
+.title-separtor {
+    width: 41%;
+    margin: 0px auto 0px auto;
+    height: 4%;
+    background-color: grey;
+    border-left: 10px;
+}
+
+.logForm {
+    margin: 4.25% auto;
+}
+
+.gotoregister {
+    text-decoration: none;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.btn-navy {
+    background-color: navy;
+    color: white;
+}
+
+.form-control {
+    text-align: left;
+}
+
+* {
+    text-align: right;
+}
+
+.br {
+    box-shadow: 5px 2px 18px -9px #000;
+}
+
+/** Registeration form style **/
+
+/** Handle register screen responsive **/
+
+@media only screen and (min-width : 320px) {
+    h4 {
+        font-size: 18px;
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .text-word {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1%;
+    }
+}
+
+@media only screen and (max-width : 1114px) {
+    h4 {
+        font-size: 18px;
+    }
+
+    .text-word {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2px;
+    }
+}

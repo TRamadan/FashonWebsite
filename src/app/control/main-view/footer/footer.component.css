@@ -1,0 +1,34 @@
+.navy {
+    background-color: #001a30;
+}
+
+.btn-orange {
+    background-color: #ff4e00;
+    color: white;
+    border-radius: 0.25rem;
+    width: 100%;
+}
+
+.br-0 {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.w-90 {
+    width: 91%;
+}
+
+.text-orange {
+    color: #ff4e00;
+    cursor: pointer;
+}
+
+.text-orange:hover {
+    color: #ff5201;
+    cursor: pointer;
+    text-shadow: 0 0 13px #f7a07a;
+}
+
+ul {
+    list-style: none;
+}

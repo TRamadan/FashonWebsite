@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container">
+    <a [routerLink]="['/Home']" class="navbar-brand mr-auto d-md-block d-none">
+      <img src="../../../../assets/logo.PNG" class="w-50" alt="logo" />
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item font-weight-bold">
+          <a class="nav-link" [routerLink]="['/Home']" routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item font-weight-bold">
+          <!--[routerLink]="['/services']"-->
+          <a class="nav-link" routerLinkActive="active">Services</a>
+        </li>
+        <li class="nav-item font-weight-bold">
+          <a
+            class="nav-link"
+            [routerLink]="['/aboutus']"
+            routerLinkActive="active"
+            >About us</a
+          >
+        </li>
+
+        <li class="nav-item font-weight-bold">
+          <a
+            class="nav-link"
+            [routerLink]="['/contactus']"
+            routerLinkActive="active"
+            >Contact us</a
+          >
+        </li>
+
+        <li class="nav-item font-weight-bold">
+          <!--[routerLink]="['faqs']"-->
+          <a class="nav-link" routerLinkActive="active">FAQs</a>
+        </li>
+
+        <li class="nav-item font-weight-bold">
+          <a
+            class="nav-link"
+            href="https://www.tailorstore.com.au/shirt-designer#4YyICO8DnzXA6E76lAMKn8NqCLI0kBwkrHJTIlGYHew56txj5L"
+            routerLinkActive="active"
+            >Customize shirt</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- <a
+      class="btn btn-outline-dark p-1-3 logstatus"
+      [routerLink]="['./auth/login']"
+    >
+      Login
+    </a> -->
+    <a class="logstatus">
+      <div ngbDropdown class="d-inline-block">
+        <button
+          class="btn btn-outline-dark p-1-3"
+          id="dropdownBasic1"
+          ngbDropdownToggle
+        >
+          Welcome
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem>
+            <a
+              class="text-decoration-none text-dark"
+              [routerLink]="['./profile']"
+            >
+              Profile</a
+            >
+          </button>
+          <button ngbDropdownItem (click)="LogOut()">Sign out</button>
+        </div>
+      </div>
+    </a>
+  </div>
+</nav>

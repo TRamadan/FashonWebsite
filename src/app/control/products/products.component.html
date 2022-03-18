@@ -1,0 +1,169 @@
+<div class="banner animate__animated animate__fadeIn slow 3s">
+  <h3 class="category-name">Category name here</h3>
+</div>
+
+<div class="row w-100 p-3">
+  <div class="col-md-12">
+    <h5 class="text-center all-products">All Products</h5>
+  </div>
+</div>
+<div class="row w-100 justify-content-center">
+  <!-- <div class="row w-100 justify-content-center">
+    <div class="col-md-12" *ngIf="AllCategoryProducts.length == 0">
+      <div class="alert alert-warning" role="alert">
+        There is no products added
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="col-md-4">
+    <div class="flip-card" *ngFor="let product of AllCategoryProducts">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img
+            *ngIf="product.image == null"
+            src="../../../assets/product-image-placeholder.jpg"
+            alt="Avatar"
+            style="width: 300px; height: 300px"
+          />
+
+          <img
+            *ngIf="product.image != null"
+            [src]="image_url + product.image"
+            alt="Avatar"
+            style="width: 300px; height: 300px"
+          />
+        </div>
+        <div class="flip-card-back p-3">
+          <h1>{{ product.name }}</h1>
+          <p>{{ product.details }}</p>
+          <button
+            class="details-button w-100 btn btn-dark btn-group-lg"
+            (click)="ShowDetails(product.id)"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="col-md-4">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img
+            src="../../../assets/product-image-placeholder.jpg"
+            alt="Avatar"
+            style="width: 300px; height: 300px"
+          />
+        </div>
+        <div class="flip-card-back p-3">
+          <h1>Product name</h1>
+          <p>Product details will be here</p>
+          <button
+            class="details-button w-100 btn btn-dark btn-group-lg"
+            (click)="ShowDetails()"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img
+            src="../../../assets/product-image-placeholder.jpg"
+            alt="Avatar"
+            style="width: 300px; height: 300px"
+          />
+        </div>
+        <div class="flip-card-back p-3">
+          <h1>Product name</h1>
+          <p>Product details will be here</p>
+          <button
+            class="details-button w-100 btn btn-dark btn-group-lg"
+            (click)="ShowDetails()"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img
+            src="../../../assets/product-image-placeholder.jpg"
+            alt="Avatar"
+            style="width: 300px; height: 300px"
+          />
+        </div>
+        <div class="flip-card-back p-3">
+          <h1>Product name</h1>
+          <p>Product details will be here</p>
+          <button
+            class="details-button w-100 btn btn-dark btn-group-lg"
+            (click)="ShowDetails()"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img
+            src="../../../assets/product-image-placeholder.jpg"
+            alt="Avatar"
+            style="width: 300px; height: 300px"
+          />
+        </div>
+        <div class="flip-card-back p-3">
+          <h1>Product name</h1>
+          <p>Product details will be here</p>
+          <button
+            class="details-button w-100 btn btn-dark btn-group-lg"
+            (click)="ShowDetails()"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img
+            src="../../../assets/product-image-placeholder.jpg"
+            alt="Avatar"
+            style="width: 300px; height: 300px"
+          />
+        </div>
+        <div class="flip-card-back p-3">
+          <h1>Product name</h1>
+          <p>Product details will be here</p>
+          <button
+            class="details-button w-100 btn btn-dark btn-group-lg"
+            (click)="ShowDetails()"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
