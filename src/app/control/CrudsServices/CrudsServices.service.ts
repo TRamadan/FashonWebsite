@@ -94,8 +94,8 @@ export class CrudsServicesService {
    * 1- Api_name : end point name for the called api
    * 2- body :  parameter which is the designed model to affect row in the database
    */
-  PostMethod(Api_name: any, body: any) {
-    return this.http.post(this.baseUrl + Api_name, body);
+  PostMethod(Api_name: any, body?: any, params?: any) {
+    return this.http.post(this.baseUrl + Api_name, body, params);
   }
 
   PostMethodWithPipe(Api_name: any, body: any) {

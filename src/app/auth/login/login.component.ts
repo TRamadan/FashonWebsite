@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
       };
       this.apiServices.PostMethod('Users/Login', body).subscribe(
         (data) => {
+          debugger;
           this.router.navigate(['/']);
           this.tosterService.success('Done login', 'Sucessfull operation');
         },

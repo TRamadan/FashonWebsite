@@ -46,12 +46,12 @@ const routes: Routes = [
   },
 
   {
-    path: 'products',
+    path: 'products/:id',
     component: ProductsComponent,
   },
 
   {
-    path: 'product_details',
+    path: 'product_details/:id',
     component: ProductdetailsComponent,
   },
 

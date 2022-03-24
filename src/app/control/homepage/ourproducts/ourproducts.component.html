@@ -34,12 +34,25 @@
           <div class="flip-card-back">
             <h1>{{ product.name }}</h1>
             <p>{{ product.details }}</p>
-            <button
-              class="details-button w-100 btn btn-dark btn-group-lg"
-              (click)="ShowDetails(product.id)"
-            >
-              Details
-            </button>
+            <div class="row justify-content-center mt-4 p-7">
+              <div class="col-md-6">
+                <button
+                  class="details-button w-100 btn btn-dark btn-group-lg"
+                  (click)="ShowDetails(product.id)"
+                >
+                  Details
+                </button>
+              </div>
+
+              <div class="col-md-6">
+                <button
+                  class="details-button w-100 btn btn-dark btn-group-lg"
+                  (click)="AddToFavoraits(product.id)"
+                >
+                  Add to favorait
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -13,7 +13,8 @@ import { environment } from '../../../environments/environment';
 export class ProductdetailsComponent implements OnInit {
   inputnumber: number = 0;
   ProductDetails: any;
-
+  totalprice: number = 0;
+  AllowedSizes: any = [];
   public readonly image_url = environment.ImgUrl;
 
   constructor(
@@ -34,6 +35,7 @@ export class ProductdetailsComponent implements OnInit {
     this.apiService.GetMethod('Product', id).subscribe(
       (data: any) => {
         this.ProductDetails = data;
+        this.AllowedSizes = this.ProductDetails.sizes;
       },
       (error) => {
         this.toster.error(
@@ -46,50 +48,53 @@ export class ProductdetailsComponent implements OnInit {
   //here is the function needed to increase the quantity
   plus() {
     this.inputnumber = this.inputnumber + 1;
+    this.totalprice = this.inputnumber * this.ProductDetails.price;
   }
 
   //here is the function needed to decrease the quantity
   minus() {
     if (this.inputnumber != 0) {
       this.inputnumber = this.inputnumber - 1;
+      this.totalprice = this.inputnumber * this.ProductDetails.price;
     }
   }
 
+  SelectedSizeUser: any;
+  SelectSize(e: any) {
+    debugger;
+    this.SelectedSizeUser = JSON.parse(e.target.value);
+  }
+
   AddToCart() {
+    debugger;
     //here is calling for the api needed to post products to the cart
-    let body = {
-      // userId : ,
-      // totalPrice : ,
-      // products : [
-      //   {
-      //     id : ,
-      //     name : ,
-      //     details : ,
-      //     categoryId : ,
-      //     quantity : ,
-      //     image : ,
-      //     price : ,
-      //     file : ,
-      //     sizes : [
-      //       {
-      //         id : ,
-      //         title :
-      //       }
-      //     ]
-      //   }
-      // ]
-    };
-    // this.apiService.PostMethod('Cart/AddToCart', body).subscribe(
-    //   (data) => {
-    //     debugger;
-    //   },
-    //   (error) => {
-    //     this.toster.error(
-    //       'Error adding selected products in the cart',
-    //       'Wrong operation'
-    //     );
-    //   }
-    // );
-    this.router.navigateByUrl('/cart');
+    if (this.ProductDetails.quantity < this.inputnumber) {
+      this.toster.error(
+        'Needed quantity is more than stock quantity',
+        'Error operation'
+      );
+    } else {
+      let body = {
+        userId: 3,
+        totalPrice: this.totalprice,
+        productId: this.ProductDetails.id,
+        productQuantity: this.inputnumber,
+      };
+      this.apiService.PostMethod('Cart/AddToCart', body).subscribe(
+        (data) => {
+          this.toster.success(
+            'Done add selected product to the cart',
+            'Done messgae'
+          );
+          this.router.navigateByUrl('/cart');
+        },
+        (error) => {
+          this.toster.error(
+            'Error adding selected products in the cart',
+            'Wrong operation'
+          );
+        }
+      );
+    }
   }
 }

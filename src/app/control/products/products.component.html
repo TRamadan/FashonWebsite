@@ -8,14 +8,14 @@
   </div>
 </div>
 <div class="row w-100 justify-content-center">
-  <!-- <div class="row w-100 justify-content-center">
+  <div class="row w-100 justify-content-center">
     <div class="col-md-12" *ngIf="AllCategoryProducts.length == 0">
       <div class="alert alert-warning" role="alert">
         There is no products added
       </div>
     </div>
-  </div> -->
-  <!-- <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
     <div class="flip-card" *ngFor="let product of AllCategoryProducts">
       <div class="flip-card-inner">
         <div class="flip-card-front">
@@ -42,125 +42,12 @@
           >
             Details
           </button>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
-  <div class="col-md-4">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img
-            src="../../../assets/product-image-placeholder.jpg"
-            alt="Avatar"
-            style="width: 300px; height: 300px"
-          />
-        </div>
-        <div class="flip-card-back p-3">
-          <h1>Product name</h1>
-          <p>Product details will be here</p>
           <button
-            class="details-button w-100 btn btn-dark btn-group-lg"
-            (click)="ShowDetails()"
+            class="details-button w-100 btn btn-success btn-group-lg"
+            (click)="AddToFavoraits(product.id)"
           >
-            Details
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img
-            src="../../../assets/product-image-placeholder.jpg"
-            alt="Avatar"
-            style="width: 300px; height: 300px"
-          />
-        </div>
-        <div class="flip-card-back p-3">
-          <h1>Product name</h1>
-          <p>Product details will be here</p>
-          <button
-            class="details-button w-100 btn btn-dark btn-group-lg"
-            (click)="ShowDetails()"
-          >
-            Details
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img
-            src="../../../assets/product-image-placeholder.jpg"
-            alt="Avatar"
-            style="width: 300px; height: 300px"
-          />
-        </div>
-        <div class="flip-card-back p-3">
-          <h1>Product name</h1>
-          <p>Product details will be here</p>
-          <button
-            class="details-button w-100 btn btn-dark btn-group-lg"
-            (click)="ShowDetails()"
-          >
-            Details
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img
-            src="../../../assets/product-image-placeholder.jpg"
-            alt="Avatar"
-            style="width: 300px; height: 300px"
-          />
-        </div>
-        <div class="flip-card-back p-3">
-          <h1>Product name</h1>
-          <p>Product details will be here</p>
-          <button
-            class="details-button w-100 btn btn-dark btn-group-lg"
-            (click)="ShowDetails()"
-          >
-            Details
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img
-            src="../../../assets/product-image-placeholder.jpg"
-            alt="Avatar"
-            style="width: 300px; height: 300px"
-          />
-        </div>
-        <div class="flip-card-back p-3">
-          <h1>Product name</h1>
-          <p>Product details will be here</p>
-          <button
-            class="details-button w-100 btn btn-dark btn-group-lg"
-            (click)="ShowDetails()"
-          >
-            Details
+            Add to favorait
           </button>
         </div>
       </div>

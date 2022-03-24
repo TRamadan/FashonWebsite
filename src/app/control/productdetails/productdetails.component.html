@@ -43,6 +43,17 @@
               Stock quantity : {{ ProductDetails.quantity }}
             </p>
 
+            <span class="fw-bold">
+              Available sizes :
+              <select
+                class="form-select form-control"
+                (change)="SelectSize($event)"
+              >
+                <option *ngFor="let x of AllowedSizes" [value]="x | json">
+                  {{ x.title }}
+                </option>
+              </select>
+            </span>
             <p>Quantity needed:</p>
             <div class="form-check-inline">
               <button class="btn btn-primary mb-3" (click)="plus()">

@@ -14,36 +14,47 @@
                 <th scope="col">#</th>
                 <th scope="col">Product</th>
                 <th scope="col">Quantity</th>
-                <th scope="col">Subtotal</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <th scope="row">1</th>
+              <tr *ngFor="let cart_products of Products; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
                 <td>
                   <div class="d-inline-block">
-                    <img
+                    <div *ngIf="cart_products.categoryImage == null">
+                      <img
+                        class="category-image"
+                        src="../../../../assets/no-categories.png"
+                      />
+                    </div>
+                    <div *ngIf="cart_products.image != null">
+                      <img
+                        class="category-image"
+                        [src]="image_url + cart_products.image"
+                      />
+                    </div>
+                    <!-- <img
                       src="../../../assets/product-image-placeholder.jpg"
                       alt="prod_img"
                       width="102"
                       height="102"
                       class="detaild-img"
-                    />
+                    /> -->
                   </div>
                   <div class="d-inline-block">
-                    <p class="fw-bold">Product name</p>
-                    <p class="fw-bold">Short details</p>
-                    <p class="fw-bold">Price LE</p>
-                    <button class="btn btn-outline-danger" (click)="Delete()">
-                      Remove
-                    </button>
+                    <p class="fw-bold">{{ cart_products.name }}</p>
+                    <p class="fw-bold">{{ cart_products.details }}</p>
+                    <p class="fw-bold">{{ cart_products.price }} LE</p>
                   </div>
                 </td>
-                <td>100</td>
-                <td>150 LE</td>
+                <td>{{ cart_products.quantity }}</td>
               </tr>
             </tbody>
+
+            <tfoot>
+              <h3>Total cart price : {{ TotalPrice }} LE</h3>
+            </tfoot>
           </table>
         </div>
 

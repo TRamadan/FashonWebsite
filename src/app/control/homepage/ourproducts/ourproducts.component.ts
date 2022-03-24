@@ -39,6 +39,27 @@ export class OurproductsComponent implements OnInit {
     );
   }
   ShowDetails(selected_prodid: any) {
-    this.router.navigateByUrl('/product_details');
+    this.router.navigateByUrl(`/product_details/${selected_prodid}`);
+  }
+
+  //here is the function needed to add a select product to the favorait list or whishlist
+  //Favourites/AddToFavourites
+  AddToFavoraits(product_id: any) {
+    this.apiServices
+      .PostMethod(`Favourites/AddToFavourites/3/${product_id}`)
+      .subscribe(
+        (data) => {
+          this.tosterService.success(
+            'Done added selected product to the wishlist',
+            'Successfull operation'
+          );
+        },
+        (error) => {
+          this.tosterService.error(
+            'Error on adding selected product to the cart',
+            'Error operation'
+          );
+        }
+      );
   }
 }

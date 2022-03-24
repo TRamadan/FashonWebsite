@@ -50,7 +50,24 @@ export class ProductsComponent implements OnInit {
     );
   }
 
-  ShowDetails() {
-    this.router.navigateByUrl(`/product_details`);
+  ShowDetails(selected_prod: any) {
+    this.router.navigateByUrl(`/product_details/${selected_prod}`);
+  }
+
+  //here is the function needed to add a select product to the favorait list or whishlist
+  AddToFavoraits(selected_prod: any) {
+    let body = {};
+
+    this.apiService.PostMethod('', body).subscribe(
+      (data) => {
+        debugger;
+      },
+      (error) => {
+        this.toster.error(
+          'Error on adding selected product to the cart',
+          'Error operation'
+        );
+      }
+    );
   }
 }
