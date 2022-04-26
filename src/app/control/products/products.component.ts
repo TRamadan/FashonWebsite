@@ -13,7 +13,7 @@ import { environment } from '../../../environments/environment';
 export class ProductsComponent implements OnInit {
   selected_category_id: any;
   AllCategoryProducts: any;
-
+  FetchedUserData: any;
   public readonly image_url = environment.ImgUrl;
 
   constructor(
@@ -27,6 +27,8 @@ export class ProductsComponent implements OnInit {
     this.route.params.subscribe((Params) => {
       this.GetAllProducts(Params['id']);
     });
+    this.FetchedUserData = JSON.parse(localStorage.getItem('UserData')!).id;
+    console.log(this.FetchedUserData);
   }
 
   NoProductsFound!: string;
@@ -56,18 +58,26 @@ export class ProductsComponent implements OnInit {
 
   //here is the function needed to add a select product to the favorait list or whishlist
   AddToFavoraits(selected_prod: any) {
-    let body = {};
-
-    this.apiService.PostMethod('', body).subscribe(
-      (data) => {
-        debugger;
-      },
-      (error) => {
-        this.toster.error(
-          'Error on adding selected product to the cart',
-          'Error operation'
+    if (this.FetchedUserData == undefined) {
+      this.toster.error(
+        'ُError on adding the selected product to favoraits , please login'
+      );
+    } else {
+      this.apiService
+        .PostMethod(
+          `Favourites/AddToFavourites/${this.FetchedUserData}/${selected_prod}`
+        )
+        .subscribe(
+          (data) => {
+            this.toster.success('Done add selected product to favoraits');
+          },
+          (error) => {
+            this.toster.error(
+              'Error on adding selected product to the cart',
+              'Error operation'
+            );
+          }
         );
-      }
-    );
+    }
   }
 }

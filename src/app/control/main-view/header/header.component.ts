@@ -21,7 +21,14 @@ export class HeaderComponent implements OnInit {
   //   }
   // }
 
+  //here is the function needed to exit from the application
   LogOut() {
+    localStorage.clear();
     this.router.navigateByUrl('/auth/login');
+  }
+
+  //here is the function needed to view all needed items for the cart
+  GotoCart() {
+    this.router.navigateByUrl('/cart');
   }
 }

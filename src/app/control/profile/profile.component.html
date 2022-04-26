@@ -35,21 +35,15 @@
           <h3 class="text-center fw-bold profile-label">Profile Data</h3>
           <div class="row justify-content-center">
             <div class="col-md-4">
-              <h5>Name Test phone number</h5>
+              <h5>Full name {{ FullName }}</h5>
             </div>
 
             <div class="col-md-4">
-              <h5>Phone Test phone number</h5>
-            </div>
-          </div>
-
-          <div class="row justify-content-center">
-            <div class="col-md-4">
-              <h5>Username Test phone username</h5>
+              <h5>Phone {{ AllUserData.phone }}</h5>
             </div>
 
             <div class="col-md-4">
-              <h5>Email Test phone email</h5>
+              <h5>Email {{ AllUserData.email }}</h5>
             </div>
           </div>
         </div>
@@ -60,8 +54,27 @@
   <div class="row p-3 mt-3" *ngIf="ShowOrdersDataBool">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-body">
-          <h3 class="text-center">Orders go here</h3>
+        <div class="card-body" *ngIf="AllOrders.length == 0">
+          <h4 class="text-center fw-bold">{{ NoOrders }}</h4>
+        </div>
+        <div class="card-body" *ngIf="AllOrders.length > 0">
+          <h3 class="text-center wishlist-title">My orders</h3>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Order Quantity</th>
+                <th scope="col">Product name</th>
+                <th scope="col">Product Price</th>
+                <th scope="col">Product quantity</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let order of AllOrders"></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -70,8 +83,46 @@
   <div class="row p-3 mt-3" *ngIf="ShowWishListDataBool">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-body">
-          <h3 class="text-center">Favorait list go here</h3>
+        <div class="card-body" *ngIf="AllFavoraits.length == 0">
+          <h4 class="text-center fw-bold">{{ NoWishList }}</h4>
+        </div>
+        <div class="card-body" *ngIf="AllFavoraits.length > 0">
+          <h3 class="text-center wishlist-title">My WishList</h3>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product name</th>
+                <th scope="col">Info</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let fav of AllFavoraits; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ fav.name }}</td>
+                <td>{{ fav.details }}</td>
+                <td>{{ fav.price }} LE</td>
+                <td>{{ fav.quantity }}</td>
+                <td class="justify-content-between">
+                  <button
+                    class="btn btn-outline-danger"
+                    (click)="RemoveItem(i)"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    class="btn btn-outline-success opts-buttons"
+                    (click)="AddToCart(fav.id)"
+                  >
+                    Add to cart
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

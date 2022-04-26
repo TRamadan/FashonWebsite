@@ -38,9 +38,9 @@ export class LoginComponent implements OnInit {
         password: this.LoginForm.controls.password.value,
       };
       this.apiServices.PostMethod('Users/Login', body).subscribe(
-        (data) => {
-          debugger;
+        (data: any) => {
           this.router.navigate(['/']);
+          localStorage.setItem('UserData', JSON.stringify(data));
           this.tosterService.success('Done login', 'Sucessfull operation');
         },
         (error) => {

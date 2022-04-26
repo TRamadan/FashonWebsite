@@ -9,8 +9,9 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./ourproducts.component.css'],
 })
 export class OurproductsComponent implements OnInit {
-  AllProducts: any = [];
+  AllProducts: any[] = [];
   ProductSample: any = [];
+  FetchedUserData: any;
   public readonly image_url = environment.ImgUrl;
 
   constructor(
@@ -21,14 +22,26 @@ export class OurproductsComponent implements OnInit {
 
   ngOnInit() {
     this.GetAllProducts();
+    this.FetchedUserData = JSON.parse(localStorage.getItem('UserData')!).id;
   }
 
   //here is the function needed to get all added products
+  ParsedProductsArray: any = [];
   GetAllProducts() {
     this.apiServices.GetMethod('Product').subscribe(
-      (data) => {
+      (data: any) => {
         //show only first 3
         this.AllProducts = data;
+        this.AllProducts.forEach((element: any) => {
+          if (this.ParsedProductsArray.length < 3) {
+            this.ParsedProductsArray.push({
+              image: element.image,
+              name: element.name,
+              details: element.details,
+              id: element.id,
+            });
+          }
+        });
       },
       (error) => {
         this.tosterService.error(
@@ -45,21 +58,30 @@ export class OurproductsComponent implements OnInit {
   //here is the function needed to add a select product to the favorait list or whishlist
   //Favourites/AddToFavourites
   AddToFavoraits(product_id: any) {
-    this.apiServices
-      .PostMethod(`Favourites/AddToFavourites/3/${product_id}`)
-      .subscribe(
-        (data) => {
-          this.tosterService.success(
-            'Done added selected product to the wishlist',
-            'Successfull operation'
-          );
-        },
-        (error) => {
-          this.tosterService.error(
-            'Error on adding selected product to the cart',
-            'Error operation'
-          );
-        }
-      );
+    if (this.FetchedUserData == undefined) {
+      this.tosterService.error('Please login first to add to favoraits');
+      this.router.navigateByUrl('auth/login');
+    } else {
+      this.apiServices
+        .PostMethod(
+          `Favourites/AddToFavourites/${this.FetchedUserData}/${product_id}`
+        )
+        .subscribe(
+          (data) => {
+            this.tosterService.success(
+              'Done added selected product to the wishlist',
+              'Successfull operation'
+            );
+          },
+          (error) => {
+            if (error.status == 400) {
+              this.tosterService.error(
+                'Product already added to the wishlist',
+                'Error operation'
+              );
+            }
+          }
+        );
+    }
   }
 }

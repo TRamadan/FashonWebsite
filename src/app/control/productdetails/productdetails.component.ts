@@ -61,12 +61,10 @@ export class ProductdetailsComponent implements OnInit {
 
   SelectedSizeUser: any;
   SelectSize(e: any) {
-    debugger;
     this.SelectedSizeUser = JSON.parse(e.target.value);
   }
 
   AddToCart() {
-    debugger;
     //here is calling for the api needed to post products to the cart
     if (this.ProductDetails.quantity < this.inputnumber) {
       this.toster.error(
@@ -75,7 +73,7 @@ export class ProductdetailsComponent implements OnInit {
       );
     } else {
       let body = {
-        userId: 3,
+        userId: JSON.parse(localStorage.getItem('UserData')!).id,
         totalPrice: this.totalprice,
         productId: this.ProductDetails.id,
         productQuantity: this.inputnumber,

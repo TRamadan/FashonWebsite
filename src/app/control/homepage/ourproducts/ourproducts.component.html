@@ -6,14 +6,14 @@
   </div>
 
   <div class="row w-100 justify-content-center">
-    <div class="col-md-12" *ngIf="AllProducts.length == 0">
+    <div class="col-md-12" *ngIf="ParsedProductsArray.length == 0">
       <div class="alert alert-warning" role="alert">
         There is no products added
       </div>
     </div>
   </div>
   <div class="row w-100 justify-content-center">
-    <div class="col-md-4" *ngFor="let product of AllProducts">
+    <div class="col-md-4" *ngFor="let product of ParsedProductsArray">
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">

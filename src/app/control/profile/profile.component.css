@@ -13,3 +13,20 @@
 .profile-label {
     font-size: 30px;
 }
+
+td, th {
+    text-align: center;
+}
+
+.card {
+    border: none;
+}
+
+.opts-buttons {
+    margin-left: 16px;
+}
+
+.wishlist-title {
+    font-weight: bold;
+    font-size: 30px;
+}
