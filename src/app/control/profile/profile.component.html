@@ -55,7 +55,9 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-body" *ngIf="AllOrders.length == 0">
-          <h4 class="text-center fw-bold">{{ NoOrders }}</h4>
+          <div class="alert alert-warning">
+            <h4 class="text-center fw-bold">{{ NoOrders }}</h4>
+          </div>
         </div>
         <div class="card-body" *ngIf="AllOrders.length > 0">
           <h3 class="text-center wishlist-title">My orders</h3>
@@ -64,6 +66,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Order Quantity</th>
+                <th scope="col">Total price</th>
                 <th scope="col">Product name</th>
                 <th scope="col">Product Price</th>
                 <th scope="col">Product quantity</th>
@@ -72,7 +75,30 @@
             </thead>
 
             <tbody>
-              <tr *ngFor="let order of AllOrders"></tr>
+              <tr *ngFor="let order of AllOrders; let i = index">
+                <td>
+                  {{ i + 1 }}
+                </td>
+
+                <td>
+                  {{ order.products[0].quantity }}
+                </td>
+
+                <td>{{ order.totalPrice }}</td>
+
+                <td>{{ order.products[0].name }}</td>
+                <td>{{ order.products[0].price }}</td>
+                <td>{{ order.products[0].quantity }}</td>
+
+                <td>
+                  <button
+                    class="btn btn-danger fw-bold"
+                    (click)="CancelOrder(order.id)"
+                  >
+                    <i class="fa fa-trash trash-icon"></i>Cancel Order
+                  </button>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -84,7 +110,9 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-body" *ngIf="AllFavoraits.length == 0">
-          <h4 class="text-center fw-bold">{{ NoWishList }}</h4>
+          <div class="alert alert-warning">
+            <h4 class="text-center fw-bold">{{ NoWishList }}</h4>
+          </div>
         </div>
         <div class="card-body" *ngIf="AllFavoraits.length > 0">
           <h3 class="text-center wishlist-title">My WishList</h3>

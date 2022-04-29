@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudsServicesService } from '../CrudsServices/CrudsServices.service';
-import { environment } from '../../../environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
@@ -14,7 +13,7 @@ export class ProfileComponent implements OnInit {
   ShowOrdersDataBool!: boolean;
   ShowWishListDataBool!: boolean;
   AllFavoraits: any[] = [];
-  AllOrders = [];
+  AllOrders: any[] = [];
   FetchedUserData: string = '';
   FullName: string = '';
   AllUserData: any;
@@ -38,6 +37,7 @@ export class ProfileComponent implements OnInit {
 
   //here is the function needed to get all orders based on the loggined user
   NoOrders: string = '';
+  ParsedOrders: any;
   GetOrders() {
     this.apiService.GetMethod('Orders', this.FetchedUserData).subscribe(
       (data: any) => {
@@ -127,5 +127,22 @@ export class ProfileComponent implements OnInit {
   //here is the function needed to add a selected wishlist item to the cart
   AddToCart(selected_item: any) {
     this.router.navigateByUrl(`/product_details/${selected_item}`);
+  }
+
+  //here is the function needed to cancel an already placed order
+  CancelOrder(selected_order: any) {
+    this.apiService
+      .DeleteMethod('Orders/CancelOrder', selected_order)
+      .subscribe(
+        (data) => {
+          this.tosterService.success('Done cancel order');
+          this.GetOrders();
+        },
+        (error) => {
+          this.tosterService.error(
+            'There is an error occured , please try again'
+          );
+        }
+      );
   }
 }

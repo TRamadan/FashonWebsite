@@ -53,7 +53,7 @@
         <li class="nav-item font-weight-bold">
           <a
             class="nav-link"
-            href="https://www.tailorstore.com.au/shirt-designer#4YyICO8DnzXA6E76lAMKn8NqCLI0kBwkrHJTIlGYHew56txj5L"
+            [routerLink]="['customShirt']"
             routerLinkActive="active"
             >Customize shirt</a
           >
@@ -76,13 +76,8 @@
           Welcome
         </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem>
-            <a
-              class="text-decoration-none text-dark"
-              [routerLink]="['./profile']"
-            >
-              Profile</a
-            >
+          <button ngbDropdownItem [routerLink]="['./profile']">
+            <a class="text-decoration-none text-dark"> Profile</a>
           </button>
           <button ngbDropdownItem (click)="LogOut()">Sign out</button>
           <button ngbDropdownItem (click)="GotoCart()">Cart</button>

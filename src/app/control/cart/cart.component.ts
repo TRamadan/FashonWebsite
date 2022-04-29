@@ -54,10 +54,11 @@ export class CartComponent implements OnInit {
       .subscribe(
         (Data) => {
           this.toster.success('Successfull Place this order');
-          location.href = '/';
         },
         (error) => {
-          console.log(error);
+          this.toster.error(
+            'Error occured in adding oreder , please try again'
+          );
         }
       );
   }

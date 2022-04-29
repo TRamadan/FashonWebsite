@@ -30,3 +30,7 @@ td, th {
     font-weight: bold;
     font-size: 30px;
 }
+
+.trash-icon {
+    margin-right: 10px;
+}
