@@ -42,6 +42,11 @@ export class ProfileComponent implements OnInit {
     this.apiService.GetMethod('Orders', this.FetchedUserData).subscribe(
       (data: any) => {
         this.AllOrders = data;
+        if (this.AllOrders.length == 0) {
+          this.NoOrders = 'There is no added orders';
+        } else {
+          this.AllOrders = data;
+        }
       },
       (error) => {
         if (error.status == 400) {

@@ -108,7 +108,11 @@ p {
 }
 
 .collar-title {
-
     margin-top: 12%;
+}
 
+.choose-product {
+    margin-top: 20%;
+    font-weight: bold;
+    font-size: 35px;
 }
